@@ -13,14 +13,18 @@ int main(int argc, char ** argv) {
 
 	if (A == NULL) return -1;
 	if (b == NULL) return -2;
+	
+	printf("Macierz A: ");
 	printToScreen(A);
+	printf("Macierz b: ");
 	printToScreen(b);
 
 	res = eliminate(A,b);
 	x = createMatrix(b->r, 1);
 	if (x != NULL) {
 		res = backsubst(x,A,b);
-
+		
+		printf("Macierz niewoadomych: ");
 		printToScreen(x);
 	  freeMatrix(x);
 	} else {

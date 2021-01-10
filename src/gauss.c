@@ -4,10 +4,9 @@
  * Zwraca 0 - elimnacja zakonczona sukcesem
  * Zwraca 1 - macierz osobliwa - dzielenie przez 0
  */
-int eliminate(Matrix *mat, Matrix *b) {
-    /**
-  	 * Tutaj należy umieścić właściwą implemntację.
-		 */
+int eliminate(Matrix *mat, Matrix *b) 
+{
+  
 	for (int i = 0; i < mat -> c; i++)
 	{
 		if (mat -> data[i][i] == 0)
@@ -24,21 +23,13 @@ int eliminate(Matrix *mat, Matrix *b) {
 			}	
 		
 			double skalar = mat ->data[h][h] / mat -> data[i][h];
-			//printf("[Wiersz: %d skalar: %f]\n", i, skalar);
-
 			for (int j = 0; j < mat -> c; j++)
 			{
-				//double skalar = mat ->data[i-1][i-1] / mat -> data[i][h];
 				mat -> data[i][j] *= skalar;
-				//b -> data[i][j] *= skalar;
 				mat -> data[i][j] -= mat -> data [h][j]; 
-				//b -> data[i][j] -= b -> data[h][j];
-				//printf("[%f]", skalar);
-				//if (j < i)	
 			}
 			b -> data[i][0] *= skalar;
 			b -> data[i][0] -= b -> data[h][0];
-			//printf("[%f]", skalar);
 
 		}
 	}	
